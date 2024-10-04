@@ -1,0 +1,29 @@
+{
+    "name": "Nav2",
+    "build": {
+        "dockerfile": "../Dockerfile"
+    },
+    "runArgs": [
+        "--name=nav2",
+        "--cap-add=SYS_PTRACE", // enable debugging, e.g. gdb
+        "--ipc=host", // shared memory transport with host, e.g. rviz GUIs
+        "--network=host", // network access to host interfaces, e.g. eth0
+        "--pid=host", // DDS discovery with host, without --network=host
+        "--privileged", // device access to host peripherals, e.g. USB
+        "--security-opt=seccomp=unconfined", // enable debugging, e.g. gdb
+        "--env=DISPLAY=$DISPLAY" ,
+        "--volume=/run/user/1000/gdm/Xauthority:/root/.Xauthority"
+    ],
+        "vscode": {
+            "settings": {},
+            "extensions": [
+                "althack.ament-task-provider",
+                "eamodio.gitlens",
+                "esbenp.prettier-vscode",
+                "GitHub.copilot",
+                "ms-iot.vscode-ros",
+                "streetsidesoftware.code-spell-checker",
+                "twxs.cmake"
+            ]
+        }
+    }
